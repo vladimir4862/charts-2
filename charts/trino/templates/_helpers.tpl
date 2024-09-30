@@ -127,7 +127,7 @@ Code is inspired from bitnami/common
 {{/*
 Create the name of the file password auth secret to use
 */}}
-{{- define "trino.filePasswordAuthSecretName" -}}
+{{- define "trino.passwordSecretName" -}}
 {{- if and .Values.auth .Values.auth.passwordAuthSecret }}
 {{- .Values.auth.passwordAuthSecret | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -143,7 +143,7 @@ Create the name of the file password auth secret to use
 {{/*
 Create the name of the file group auth secret to use
 */}}
-{{- define "trino.fileGroupAuthSecretName" -}}
+{{- define "trino.groupSecretName" -}}
 {{- if and .Values.auth .Values.auth.groupAuthSecret }}
 {{- .Values.auth.groupAuthSecret | trunc 63 | trimSuffix "-" }}
 {{- else }}
