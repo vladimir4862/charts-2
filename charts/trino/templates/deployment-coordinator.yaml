@@ -74,13 +74,13 @@ spec:
                 path: password.db
         {{- end }}
         {{- if or .Values.auth.groups .Values.auth.groupsAuthSecret }}
-        - name: file-groups-authentication-volume
+        - name: file-group-authentication-volume
           secret:
             secretName: {{ template "trino.groupSecretName" . }}
             items:
               - key: group.db
                 path: group.db
-        {{- end }}        
+        {{- end }}
         {{- if .Values.jmx.exporter.enabled }}
         - name: jmx-exporter-config-volume
           configMap:
@@ -166,7 +166,7 @@ spec:
             {{- if or .Values.auth.groups .Values.auth.groupsAuthSecret }}
             - mountPath: {{ .Values.server.config.path }}/auth/group
               name: file-group-authentication-volume
-            {{- end }}            
+            {{- end }}
             {{- with .Values.coordinator.additionalVolumeMounts }}
             {{- . | toYaml | nindent 12 }}
             {{- end }}

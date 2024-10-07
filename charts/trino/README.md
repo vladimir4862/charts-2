@@ -372,7 +372,6 @@ Fast distributed SQL query engine for big data analytics that helps you explore 
   ```yaml
    groupAuthSecret: "trino-group-authentication"
   ```
-
 * `serviceAccount.create` - bool, default: `false`  
 
   Specifies whether a service account should be created
