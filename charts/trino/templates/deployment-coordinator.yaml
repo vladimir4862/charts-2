@@ -74,9 +74,9 @@ spec:
                 path: password.db
         {{- end }}
         {{- if or .Values.auth.groups .Values.auth.groupsAuthSecret }}
-        - name: file-group-authentication-volume
+        - name: file-groups-authentication-volume
           secret:
-            secretName: {{ template "trino.groupSecretName" . }}
+            secretName: {{ template "trino.groupsSecretName" . }}
             items:
               - key: group.db
                 path: group.db
@@ -165,7 +165,7 @@ spec:
             {{- end }}
             {{- if or .Values.auth.groups .Values.auth.groupsAuthSecret }}
             - mountPath: {{ .Values.server.config.path }}/auth/group
-              name: file-group-authentication-volume
+              name: file-groups-authentication-volume
             {{- end }}
             {{- with .Values.coordinator.additionalVolumeMounts }}
             {{- . | toYaml | nindent 12 }}

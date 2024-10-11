@@ -143,7 +143,7 @@ Create the name of the file password auth secret to use
 {{/*
 Create the name of the file group auth secret to use
 */}}
-{{- define "trino.groupSecretName" -}}
+{{- define "trino.groupsSecretName" -}}
 {{- if and .Values.auth .Values.auth.groupAuthSecret }}
 {{- .Values.auth.groupAuthSecret | trunc 63 | trimSuffix "-" }}
 {{- else }}
