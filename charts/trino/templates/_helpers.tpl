@@ -133,9 +133,9 @@ Create the name of the file password auth secret to use
 {{- else }}
 {{- $name := default .Chart.Name .Values.nameOverride }}
 {{- if hasPrefix .Release.Name $name }}
-{{- printf "%s-%s" $name "file-password-authentication" | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-%s" $name "password-file" | trunc 63 | trimSuffix "-" }}
 {{- else }}
-{{- printf "%s-%s-%s" .Release.Name $name "file-password-authentication" | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-%s-%s" .Release.Name $name "password-file" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 {{- end }}
 {{- end }}
@@ -149,9 +149,9 @@ Create the name of the file group auth secret to use
 {{- else }}
 {{- $name := default .Chart.Name .Values.nameOverride }}
 {{- if hasPrefix .Release.Name $name }}
-{{- printf "%s-%s" $name "file-group-authentication" | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-%s" $name "groups-file" | trunc 63 | trimSuffix "-" }}
 {{- else }}
-{{- printf "%s-%s-%s" .Release.Name $name "file-group-authentication" | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-%s-%s" .Release.Name $name "groups-file" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 {{- end }}
 {{- end }}
